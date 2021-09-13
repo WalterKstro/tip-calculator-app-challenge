@@ -33,8 +33,8 @@ Users should be able to:
 ![](./screenshots/2.png)
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/WalterKstro/tip-calculator-app-challenge)
+- Live Site URL: [Add live site URL here](https://walterkstro.github.io/tip-calculator-app-challenge/)
 
 ## My process
 
