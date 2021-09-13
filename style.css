@@ -1,0 +1,238 @@
+/********************CUSTOM PROPERTYES********************/
+:root{
+    --strong-cyan: hsl(172, 67%, 45%);
+    --very-dark-cyan: hsl(183, 100%, 15%);
+    --dark-grayish-cyan-dark: hsl(186, 14%, 43%);
+    --dark-grayish-cyan-light: hsl(184, 14%, 56%);
+    --light-grayish-cyan-dark: hsl(185, 41%, 84%);
+    --light-grayish-cyan-light: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+    --alert: rgba(255,80,47,1);
+
+    --border-radius-bg: 1.6rem;
+    --border-radius-sm: .8rem;
+
+    --space-lg:2.4rem;
+    --space-nm:1.6rem;
+    --space-sm:.8rem;
+
+    --height-components: 4rem;
+}
+
+/********************RESET STYLE DEFAULT********************/
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html,
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--light-grayish-cyan-dark);
+    display: flex;
+    font-family: 'Space Mono', monospace;
+    font-size:62.5%;
+}
+label{
+    display: block;
+}
+p:not(.icon){
+    font-size:1.6rem;
+    font-weight: 700;
+    color: var(--dark-grayish-cyan-dark);
+    margin-bottom: var(--space-sm);
+}
+
+
+
+/********************MAIN APP********************/
+.app{
+    margin: auto;
+    max-width: 40rem;
+    min-height:70rem;
+    height: 90%;
+    width: 95%;
+    padding: var(--space-lg);
+    background-color: var(--white);
+    border-radius:var(--border-radius-bg);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr 80px 1fr;
+    grid-template-areas: "bill"
+                         "tip"
+                         "people"
+                         "resume";
+    row-gap: var(--space-nm);
+}
+
+/********************SECTION BILL********************/
+.bill{
+    grid-area: bill;
+}
+.icon{
+    position:relative;
+    display:flex;
+    align-items: center;
+}
+.icon::before{
+    font-family: "Font Awesome 5 Free";
+    position:absolute;
+    font-size: 1.3rem;
+    color: var(--dark-grayish-cyan-dark);
+    margin-left: var(--space-nm);
+}
+.icon_bill::before{
+    content: "\f155";
+}
+
+/********************SECTION TIP********************/
+.tip{
+    grid-area: tip;
+    display: flex;
+    flex-direction: column;
+}
+.selector_tip{
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: var(--height-components);
+    grid-auto-rows: var(--height-components);
+    gap:var(--space-nm);
+
+}
+
+.btn_percentage{
+    background-color: var(--very-dark-cyan);
+    cursor: pointer;
+    color: var(--white);
+}
+
+.form_percentage{
+    width: 100%;
+}
+
+/********************SECTION PEOPLE********************/
+.people{
+    grid-area: people;
+}
+.label{
+    display:flex;
+    justify-content: space-between;
+}
+.label .alert{
+    font-size:1.4rem;
+    color: var(--alert);
+}
+.icon_people::before{
+    content: "\f007";
+}
+/********************SECTION RESUME********************/
+.resume{
+    grid-area: resume;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    padding: var(--space-lg);
+}
+.resume{
+    background-color: var(--very-dark-cyan);
+    border-radius:var(--border-radius-bg);
+}
+.tip_amount{
+    font-size: 1.4rem;
+    border-spacing: 0 1.6em;
+}
+.tip_amount td{
+    color: var(--light-grayish-cyan-dark);
+    font-weight:700;
+}
+.tip_amount td:last-child{
+    font-size:3.5rem;
+    color:var(--strong-cyan);
+    text-align: right;
+}
+.tip_amount span{
+    font-size: 1.2rem;
+    color:var(--dark-grayish-cyan-light);
+    display: block;
+}
+.btn_reset{
+    background-color: var(--strong-cyan);
+    font-size:1.8rem;
+    color:var(--very-dark-cyan);
+    font-weight: 700;
+}
+
+/********************STYLE GENERAL********************/
+
+[class*=form_]{
+    background-color: var(--light-grayish-cyan-light);
+    padding: 0 var(--space-nm);
+    text-align:right;
+    color: var(--very-dark-cyan);
+}
+
+.form:not(.form_percentage){
+    width: 100%;
+}
+
+[class*=form_]:focus{
+    border: 2px solid var(--strong-cyan);
+    outline: 0;
+}
+.btn,
+.form{
+    border-radius:var(--border-radius-sm);
+    height:var(--height-components);
+    border:none;
+    font-family: 'Space Mono', monospace;
+}
+.btn{
+    cursor:pointer;
+}
+.btn:hover{
+    background-color: var(--light-grayish-cyan-dark);
+    color:var(--very-dark-cyan);
+}
+
+.btn_percentage,
+.form_percentage,
+.form_bill,
+.form_people{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.active{
+    background-color: var(--strong-cyan);
+}
+.alert:focus{
+    border:2px solid var(--alert);
+}
+
+
+/********************STYLE TABLET ********************/
+@media screen and (min-width: 768px) {
+    .app{
+        max-width: 80rem;
+        min-height:30rem;
+        height: 60%;
+        width: 95%;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: 80px 1fr 80px;
+        grid-template-areas: "bill resume"
+                             "tip resume"
+                             "people resume";
+        column-gap: var(--space-lg);
+    }
+
+    .selector_tip{
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2,var(--height-components));
+        gap:var(--space-nm);
+
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Frontend Mentor | Tip calculator app</title>
+</head>
+<body>
+
+<div class="app" id="app">
+    <div class="bill">
+        <p class="label">Bill</p>
+        <p class="icon icon_bill">
+            <input type="text" name="bill" id="bill" class="form form_bill" v-model.number="bill" placeholder="0">
+        </p>
+    </div>
+    <div class="tip">
+        <p class="label">Select Tip %</p>
+        <div class="selector_tip">
+            <button type="submit" class="btn btn_percentage" value="5" @click="setPercentage">5%</button>
+            <button type="submit" class="btn btn_percentage" value="10" @click="setPercentage">10%</button>
+            <button type="submit" class="btn btn_percentage" value="15" @click="setPercentage">15%</button>
+            <button type="submit" class="btn btn_percentage" value="25" @click="setPercentage">25%</button>
+            <button type="submit" class="btn btn_percentage" value="50" @click="setPercentage">50%</button>
+            <input type="text" class="form form_percentage" ref="custom" placeholder="Custom" @focusout="setCustomPercentage">
+        </div>
+    </div>
+    <div class="people">
+        <p class="label">Number of People <span class="alert" v-if="showAlert">Can't be zero</span></p>
+        <p class="icon icon_people">
+            <input
+                    ref="people"
+                   type="text"
+                   name="people"
+                   id="people"
+                   class="form form_people"
+                    :class="{alert : showAlert}"
+                    placeholder="0"
+                   v-model.number="people"
+                   @focus="focusPeople">
+        </p>
+    </div>
+    <div class="resume">
+        <table class="tip_amount">
+            <tbody>
+            <tr>
+                <td>Tip Amount <span>/ person</span></td>
+                <td>$ {{calculateTipAmount | round }}</td>
+            </tr>
+            <tr>
+                <td>Total <span>/ person</span></td>
+                <td>$ {{calculateTotalPeople | round }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <button class="btn btn_reset" @click="resetValues">RESET</button>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
