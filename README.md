@@ -61,4 +61,4 @@ Use the watchers and filters of Vue.js and `$ref` for reference to an element or
 
 - Website - [It's in building](https://www.your-site.com)
 - Frontend Mentor - [@WalterKstro](https://www.frontendmentor.io/profile/WalterKstro)
-- Twitter - [@fckastro](https://twitter.com/fckastro)
+- Twitter - [@os_tux](https://twitter.com/os_tux)
